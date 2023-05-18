@@ -12,7 +12,7 @@ class CreateItemService (
 
     private val itemSaveUtil: ItemSaveUtil
 ) {
-    fun execute(createItemRequest: CreateItemRequest): Item {
+    fun execute(createItemRequest: CreateItemRequest) {
         val createItemDto: CreateItemDto = toDto(createItemRequest = createItemRequest)
 
         return toEntity(createItemDto)
@@ -22,13 +22,15 @@ class CreateItemService (
     private fun toDto(createItemRequest: CreateItemRequest): CreateItemDto =
             CreateItemDto(
                     title = createItemRequest.title,
-                    content = createItemRequest.content
+                    content = createItemRequest.content,
+                    price = createItemRequest.price
             )
 
     private fun toEntity(createItemDto: CreateItemDto): Item =
             Item(
                     title = createItemDto.title,
                     content = createItemDto.content,
+                    price = createItemDto.price,
                     createTime = LocalDateTime.now(),
                     editTime = LocalDateTime.now()
             )
