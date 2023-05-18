@@ -6,5 +6,7 @@ data class CreateItemRequest (
         @NotBlank
         var title: String,
         @NotBlank
-        var content: String
+        var content: String,
+        @NotBlank
+        var price: Int
 )
