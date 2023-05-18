@@ -18,15 +18,18 @@ class Item (
         var title: String,
         @Column(name = "content", nullable = false)
         var content: String,
+        @Column(name = "price", nullable = false)
+        var price: Int,
         @CreatedDate
         var createTime: LocalDateTime,
         @LastModifiedDate
         var editTime: LocalDateTime
 ) {
 
-        fun update(title: String, content: String) {
+        fun update(title: String, content: String, price: Int) {
                 this.title = title
                 this.content = content
+                this.price = price
                 this.editTime = LocalDateTime.now()
         }
 }
